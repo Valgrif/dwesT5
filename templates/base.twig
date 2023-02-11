@@ -1,0 +1,36 @@
+<!-- base.php  -->
+<html>
+    <head>
+        <!-- Contenido del head -->
+		<style>
+			.cabecera {
+				height:160px; 
+				background: url("{{ asset('imagenes/banner-tienda-online.jpg') }}") no-repeat #7968BB;
+			}
+			
+		</style>
+    </head>
+    
+    <body>
+		<div class="cabecera"></div>
+        <nav>
+            <!-- Menú de navegación -->
+			<div>
+				Menu...
+			</div>			
+        </nav>
+        
+
+        
+        <!-- En este bloque se cargará el contenido -->
+		<section>
+		<div>
+        {% block content %}{% endblock %}
+        </div>
+		</section>
+        <footer style="background: cyan">
+            <!-- Contenido del footer -->
+			2023 Daniel Gutierrez Hernández
+        </footer>
+    </body>
+</html>
