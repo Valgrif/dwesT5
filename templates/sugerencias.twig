@@ -2,15 +2,17 @@
 
 {% block content %}		
 			{%for sugerencia in sugerencias %}
+			<div class="container">
 				<form action="" method="get">	
-				Usuario: {{sugerencia.usuario}}
-				Sugerencia: {{sugerencia.sugerencia}}
+				<p>Usuario: {{sugerencia.usuario}}</p>
+				<p>Sugerencia: {{sugerencia.sugerencia}}</p>
 				{%for campo in formulario %}
 					{{campo[0]}} <input type="{{campo[1]}}" 
 					name="{{campo[2]}}" value="{{campo[3]}}">
 				{% endfor %}
 				<br />
 				</form>
+			</div>
 
 			{% endfor %}
 {% endblock %}	

@@ -1,18 +1,20 @@
 {% extends "base.twig" %}
-
 {% block content %}
-        <ul style="list-style: none">
-            <!-- Mostramos una lista de los artículos-->
-			{%for articulo in articulos %}
-			<li>
-                Articulo: {{articulo.id}}
-                    <img src="{{ asset('imagenes') }}/{{articulo.a_imagen}}" />
-                    <h2>{{articulo.titulo}}</h2>
-                    <a href="{{ path('articulo', {'id':articulo.id})}}">Detalle</a>
-					<br>
-					<br>
-            </li>
-			{% endfor %}
-        </ul>
-		
+    {%for articulo in articulos %}
+        <div class="card shadow-sm">
+            <img src="{{ asset('imagenes') }}/{{articulo.a_imagen}}" class="bd-placeholder-img card-img-top" width="100%" height="auto" />
+                <div class="card-body">
+                    <h3>{{articulo.titulo}}</h3>
+                    <p class="card-text">  {{articulo.descripcion}}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button onclick="location.href='{{ path('articulo', {'id':articulo.id})}}'" type="button" class="btn btn-sm btn-outline-secondary">
+                                Detalle
+                            </button>
+                        </div>
+                        <small class="text-muted">ID: {{articulo.id}}</small>
+                    </div>
+                </div>
+        </div>
+    {% endfor %}	
 {% endblock %}	

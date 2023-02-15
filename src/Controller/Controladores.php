@@ -8,17 +8,23 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType; //formularios
+use Symfony\Component\Form\Extension\Core\Type\SubmitType; //formularios
 
 //Incluir clase helper Modelo
 use App\Entity\Modelo;
 
-class ControladoresController extends AbstractController
+define('CON_CONTROLADOR',1);
+class Controladores extends AbstractController
 {
 
 /** 
- * @Route("/", name="index")
+ * @Route("/", name="index.php")
+ */
+/**
+ * home
+ *
+ * @return --> devuelve la vista articulos 
  */
 public function home()
 {
@@ -26,8 +32,13 @@ public function home()
     return $this->render('articulos.twig', array('articulos'=>$articulos));
 }
 
-/** 
+
+/**
+ * articulo
+ *
  * @Route("/articulo/{id}", name="articulo")
+ * @param  mixed $id El id del arituclo
+ * @return Response Devuelve una respuest HHTP con la vista y el articulo solicitdo
  */
 public function articulo($id)
 {
@@ -35,8 +46,13 @@ public function articulo($id)
     return $this->render('detalles_articulo.twig', array('articulo'=>$articulo));
 }
 
-/** 
+
+/**
+ * Esta funcion registra un usuario en la plataforma
+ * 
  * @Route("/registro", name="registro")
+ * @param  mixed $request Formulario de creqacion de suuario
+ * @return  --> devuelve el 
  */
 public function registro(Request $request)
 {   
@@ -62,7 +78,11 @@ public function registro(Request $request)
 }
 
 /** 
+ * sugerencias   
+ * 
  * @Route("/sugerencias", name="sugerencias")
+ * @param  mixed $request
+ * @return Response devuelve pagina html con el formulario y el resultado de la consulta
  */
 public function sugerencias(Request $request)
 {
@@ -70,6 +90,7 @@ public function sugerencias(Request $request)
 
     // Creamos los campos del formulario
     $formulario = array(
+
         //Vamos a seguir el patrón ('label', 'type', 'name', 'value')
         array('Observación: ', 'text', 'observ', ''),
         array('', 'submit', 'valorar', 'Valorar')
@@ -86,4 +107,3 @@ public function sugerencias(Request $request)
 }
 
 }
-?>

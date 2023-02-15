@@ -1,8 +1,12 @@
 {% extends "base.twig" %}
+{% block content %}	
+    <div class="card shadow">
+            <img src="{{ asset('imagenes') }}/{{articulo.a_imagen}}" class="bd-placeholder-img card-img-top" width="100%" height="auto" />
+        </div>
+	<div class="h-100 p-5 bg-light border rounded-3">
+        <h3>{{articulo.titulo}}</h3>
+        <p>{{articulo.detalle}}</p>
+        <button onclick="location.href='/'" class="btn btn-outline-secondary" type="button">Inicio</button>
+    </div>
 
-{% block content %}		
-			<!-- Mostramos una lista de los artículos-->
-			Detalles artículo: {{articulo.id}}
-				<img width="400" height="400" src="{{ asset('imagenes') }}/{{articulo.a_imagen}}" />
-				<h2>{{articulo.titulo}}</h2>
 {% endblock %}	
