@@ -6,4 +6,4 @@ index:
     path: /
     controller: App\Controller\Controladores::home
     schemes: [https]
-    host: www.dawdgh.es
+    host: www.sector7.es
