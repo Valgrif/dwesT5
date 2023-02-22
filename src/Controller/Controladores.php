@@ -29,7 +29,6 @@ public function home()
     return $this->render('articulos.twig', array('articulos'=>$articulos));
 }
 
-
 /**
  * articulo
  *
