@@ -17,14 +17,11 @@ use App\Entity\Modelo;
 define('CON_CONTROLADOR',1);
 class Controladores extends AbstractController
 {
-
-/** 
- * @Route("/", name="index.php")
- */
 /**
  * home
  *
  * @return --> devuelve la vista articulos 
+ * @Route("/", name="index")
  */
 public function home()
 {
